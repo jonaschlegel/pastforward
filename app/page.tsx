@@ -338,6 +338,17 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             <div className="flex justify-between items-center">
               <div className="font-bold">PastForward</div>
+              <div className="flex space-x-4 text-xs">
+                <Link href="/imprint">
+                  Imprint
+                </Link>
+                <Link href="/privacy-policy">
+                  Privacy Policy
+                </Link>
+                <Link href="/terms-and-conditions">
+                  Terms and Conditions
+                </Link>
+              </div>
               <div className="flex space-x-4">
                 <Link href="#" aria-label="Facebook">
                   <Facebook size={16} />
