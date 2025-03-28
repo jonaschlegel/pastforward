@@ -213,7 +213,7 @@ export default function Home() {
               </div>
               <div className="md:w-3/4 md:pl-8">
                 <h3 className="font-bold font-heading">
-                  Jona Schlegel - co-funder, design &amp; web development
+                  Jona Schlegel - co-founder, design &amp; web development
                 </h3>
                 <p className="text-sm mb-4 font-body">
                   Jona is a landscape archaeologist with experience in graffiti and geophysical prospection, specialising in archaeological science communication and integrating illustration with web development.
@@ -230,7 +230,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center mb-12">
               <div className="md:w-3/4 md:pl-8">
                 <h3 className="font-bold font-heading text-right">
-                  Alexandra Dolea - co-funder, marketing &amp; events
+                  Alexandra Dolea - co-founder, marketing &amp; events
                 </h3>
                 <p className="text-sm mb-4 font-body text-right">
                   Alexandra is an archaeologist with a robust background in research and community management, focusing on connection, visibility, and clear communication.
@@ -269,7 +269,7 @@ export default function Home() {
               </div>
               <div className="md:w-3/4 md:pl-8">
                 <h3 className="font-bold font-heading">
-                  Laura Coltofean - co-funder, crowdfunding campaign builder (launching soon)
+                  Laura Coltofean - co-founder, crowdfunding campaign builder (launching soon)
                 </h3>
                 <p className="text-sm mb-4 font-body">
                   Laura is an archaeologist and seasoned campaign builder, organising and building campaigns to support communal projects.
