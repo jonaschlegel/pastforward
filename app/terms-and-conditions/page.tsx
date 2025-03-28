@@ -65,7 +65,7 @@ export default function TermsPage() {
       <p>
         For questions about these Terms and Conditions, please contact:
         <br />
-        <strong>info@pastforwardhub.com</strong>
+        <strong>pastforwardplatform@proton.me</strong>
       </p>
 
       <p className="text-sm mt-8">Last updated: 27 March 2025</p>

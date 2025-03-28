@@ -13,7 +13,7 @@ export default function PrivacyPolicyPage() {
         <br />
         PastForward Collective
         <br />
-        Contact: info@pastforwardhub.com
+        Contact: pastforwardplatform@proton.me
         <br />
         Location: Amsterdam / Vienna
       </p>
