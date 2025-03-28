@@ -1,6 +1,6 @@
 export default function ImprintPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12 prose prose-neutral dark:prose-invert">
+    <main >
       <h1>Imprint</h1>
 
       <p>This website is operated in accordance with §5 TMG (Germany), §24 MedienG (Austria), and relevant EU regulations.</p>

@@ -13,20 +13,6 @@ import {
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <header className="sticky top-0 border-b bg-white z-50">
-        <div className="container mx-auto p-4 flex justify-between items-center">
-          <div className="font-bold text-xl">PastForward</div>
-          <nav className="flex space-x-6 text-sm">
-            <Link href="#newsletter" className="text-gray-600">
-              newsletter
-            </Link>
-            <Link href="#crowdfunding" className="text-gray-600">
-              crowdfunding
-            </Link>
-          </nav>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-gray-100 pt-16 pb-8">
@@ -332,38 +318,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex justify-between items-center">
-              <div className="font-bold">PastForward</div>
-              <div className="flex space-x-4 text-xs">
-                <Link href="/imprint">
-                  Imprint
-                </Link>
-                <Link href="/privacy-policy">
-                  Privacy Policy
-                </Link>
-                <Link href="/terms-and-conditions">
-                  Terms and Conditions
-                </Link>
-              </div>
-              <div className="flex space-x-4">
-                <Link href="#" aria-label="Facebook">
-                  <Facebook size={16} />
-                </Link>
-                <Link href="#" aria-label="Instagram">
-                  <Instagram size={16} />
-                </Link>
-              </div>
-            </div>
-            <div className="mt-4 text-sm text-gray-500 font-body">
-              © 2025 PastForward
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
