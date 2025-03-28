@@ -68,7 +68,21 @@ export default function Home() {
       <section id="newsletter" className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center">
-            <div className="md:w-1/3 md:pl-8">
+            {/* Text Block – appears first on mobile */}
+            <div className="order-1 md:order-2 md:w-2/3 md:pl-16 mb-8 md:mb-0 text-center md:text-left">
+              <h2 className="text-3xl font-bold mb-4 font-heading">
+                Want to stay in the loop?
+              </h2>
+              <p className="mb-1 font-body text-base">
+                If this sounds like something you've been looking for — join us early.
+              </p>
+              <p className="mb-4 font-body text-base">
+                Help shape it. Stay informed.
+              </p>
+              <p className="font-body text-base">Sign up for updates</p>
+            </div>
+            {/* MailerLite Embed – appears second on mobile */}
+            <div className="order-2 md:order-1 md:w-1/3 md:pl-8">
               <div className="bg-indigo-900 p-6 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
                 {/* MailerLite Universal Script */}
                 <Script id="mailerlite-universal" strategy="afterInteractive" className="font-body">
@@ -89,18 +103,6 @@ export default function Home() {
                 {/* MailerLite Embedded Form */}
                 <div className="ml-embedded" data-form="ispwCx"></div>
               </div>
-            </div>
-            <div className="md:w-2/3 md:pl-16">
-              <h2 className="text-2xl font-bold mb-4 font-heading">
-                Want to stay in the loop?
-              </h2>
-              <p className="mb-1 font-body">
-                If this sounds like something you've been looking for — join us early.
-              </p>
-              <p className="mb-4 font-body">
-                Help shape it. Stay informed.
-              </p>
-              <p className="font-body">Sign up for updates</p>
             </div>
           </div>
         </div>
@@ -197,14 +199,14 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="md:w-3/4 md:pl-8">
-                <h3 className="font-bold font-heading">
+              <div className="md:w-3/4 md:pl-8 text-center md:text-left">
+                <h3 className="font-bold font-heading text-xl">
                   Jona Schlegel - co-founder, design &amp; web development
                 </h3>
-                <p className="text-sm mb-4 font-body">
+                <p className="text-base mb-4 font-body">
                   Jona is a landscape archaeologist with experience in graffiti and geophysical prospection, specialising in archaeological science communication and integrating illustration with web development.
                 </p>
-                <p className="text-sm font-body">
+                <p className="text-base font-body">
                   Connect with her{" "}
                   <a href="https://www.jonaschlegel.com" className="underline">
                     here
@@ -214,21 +216,8 @@ export default function Home() {
             </div>
             {/* Team Member 2 */}
             <div className="flex flex-col md:flex-row items-center mb-12">
-              <div className="md:w-3/4 md:pl-8">
-                <h3 className="font-bold font-heading text-right">
-                  Alexandra Dolea - co-founder, marketing &amp; events
-                </h3>
-                <p className="text-sm mb-4 font-body text-right">
-                  Alexandra is an archaeologist with a robust background in research and community management, focusing on connection, visibility, and clear communication.
-                </p>
-                <p className="text-sm font-body text-right">
-                  Connect with her{" "}
-                  <a href="https://www.ilovearchaeology.com/" className="underline">
-                    here
-                  </a>
-                </p>
-              </div>
-              <div className="md:w-1/4 mb-4 md:mb-0 flex justify-end">
+              {/* For mobile, image on top */}
+              <div className="order-1 md:order-2 md:w-1/4 mb-4 md:mb-0 flex justify-center md:justify-end">
                 <div className="w-24 h-24 rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
                   <Image
                     src="/images/alexandra-dolea.jpeg"
@@ -238,6 +227,20 @@ export default function Home() {
                     className="object-cover w-full h-full"
                   />
                 </div>
+              </div>
+              <div className="order-2 md:order-1 md:w-3/4 md:pl-8 text-center md:text-right">
+                <h3 className="font-bold font-heading text-xl">
+                  Alexandra Dolea - co-founder, marketing &amp; events
+                </h3>
+                <p className="text-base mb-4 font-body">
+                  Alexandra is an archaeologist with a robust background in research and community management, focusing on connection, visibility, and clear communication.
+                </p>
+                <p className="text-base font-body">
+                  Connect with her{" "}
+                  <a href="https://www.ilovearchaeology.com/" className="underline">
+                    here
+                  </a>
+                </p>
               </div>
             </div>
             {/* Team Member 3 */}
@@ -253,14 +256,14 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className="md:w-3/4 md:pl-8">
-                <h3 className="font-bold font-heading">
+              <div className="md:w-3/4 md:pl-8 text-center md:text-left">
+                <h3 className="font-bold font-heading text-xl">
                   Laura Coltofean - co-founder, crowdfunding campaign builder (launching soon)
                 </h3>
-                <p className="text-sm mb-4 font-body">
+                <p className="text-base mb-4 font-body">
                   Laura is an archaeologist and seasoned campaign builder, organising and building campaigns to support communal projects.
                 </p>
-                <p className="text-sm font-body">
+                <p className="text-base font-body">
                   Connect with her{" "}
                   <a href="https://lauracoltofean.com/" className="underline">
                     here
