@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     url: "https://pastforward.com",
     images: [
       {
-        url: "https://pastforward.com/home-og-image.jpg",
+        url: "https://pastforward.com/og-image-home.jpg",
         width: 1200,
         height: 630,
       },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Home - PastForward",
     description: "Discover innovative approaches to sustainable careers in archaeology.",
-    images: ["https://pastforward.com/home-og-image.jpg"],
+    images: ["https://pastforward.com/og-image-home.jpg"],
   },
 };
 
