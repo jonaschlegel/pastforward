@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Newsreader, Mulish } from "next/font/google"
+import Tracking from "./Tracking"
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -25,8 +26,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${newsreader.variable} ${mulish.variable} ${mulish.className}`}>{children}</body>
+      <body className={`${newsreader.variable} ${mulish.variable} ${mulish.className}`}>
+        {children}
+        <Tracking />
+      </body>
     </html>
   )
 }
-
