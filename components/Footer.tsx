@@ -16,10 +16,10 @@ export default function Footer() {
               <Link href="/terms-and-conditions">Terms and Conditions</Link>
             </div>
             <div className="flex space-x-4">
-              <Link href="#" aria-label="Facebook">
+              <Link href="https://www.facebook.com/profile.php?id=61574945422286" aria-label="Facebook">
                 <Facebook size={16} />
               </Link>
-              <Link href="#" aria-label="Instagram">
+              <Link href="https://www.instagram.com/pastforwardhub" aria-label="Instagram">
                 <Instagram size={16} />
               </Link>
             </div>

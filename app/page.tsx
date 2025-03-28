@@ -79,11 +79,11 @@ export default function Home() {
               <p className="mb-4 font-body text-base">
                 Help shape it. Stay informed.
               </p>
-              <p className="font-body text-base">Sign up for updates</p>
+              <p className="font-body font-bold text-2xl text-base">Sign up for updates</p>
             </div>
             {/* MailerLite Embed – appears second on mobile */}
             <div className="order-2 md:order-1 md:w-1/3 md:pl-8">
-              <div className="bg-indigo-900 p-6 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
+              <div className="bg-indigo-900 p-1 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
                 {/* MailerLite Universal Script */}
                 <Script id="mailerlite-universal" strategy="afterInteractive" className="font-body">
                   {`
@@ -189,11 +189,11 @@ export default function Home() {
             {/* Team Member 1 */}
             <div className="flex flex-col md:flex-row items-center mb-12">
               <div className="md:w-1/4 mb-4 md:mb-0 flex justify-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
+                <div className="w-[140px] h-[140px] rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
                   <Image
                     src="/images/jona-schlegel.jpeg"
-                    width={96}
-                    height={96}
+                    width={120}
+                    height={120}
                     alt="Jona Schlegel"
                     className="object-cover w-full h-full"
                   />
@@ -218,11 +218,11 @@ export default function Home() {
             <div className="flex flex-col md:flex-row items-center mb-12">
               {/* For mobile, image on top */}
               <div className="order-1 md:order-2 md:w-1/4 mb-4 md:mb-0 flex justify-center md:justify-end">
-                <div className="w-24 h-24 rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
+                <div className="w-[140px] h-[140px] rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
                   <Image
                     src="/images/alexandra-dolea.jpeg"
-                    width={96}
-                    height={96}
+                    width={120}
+                    height={120}
                     alt="Alexandra Dolea"
                     className="object-cover w-full h-full"
                   />
@@ -246,11 +246,11 @@ export default function Home() {
             {/* Team Member 3 */}
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/4 mb-4 md:mb-0 flex justify-center">
-                <div className="w-24 h-24 rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
+                <div className="w-[140px] h-[140px] rounded-full overflow-hidden shadow-[0px_24px_20px_-20px_#2d3748]">
                   <Image
                     src="/images/laura-coltofean.jpeg"
-                    width={96}
-                    height={96}
+                    width={120}
+                    height={120}
                     alt="Laura Coltofean"
                     className="object-cover w-full h-full"
                   />
@@ -278,11 +278,11 @@ export default function Home() {
       {/* Support Section */}
       <section id="crowdfunding" className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="max-w-4xl mx-auto text-3xl font-bold mb-6 font-heading">
-            Support the journey.
-          </h2>
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row">
-            <div className="md:w-2/3 mb-8 md:mb-0">
+            <div className="md:w-2/3 mb-8 md:mb-0 md:pr-28">
+              <h2 className="max-w-4xl mx-auto text-3xl font-bold mb-6 font-heading">
+                Support the journey.
+              </h2>
               <p className="mb-4 font-body">
                 Building PastForward requires careful planning, time, and effort. A Kickstarter campaign is forthcoming.
               </p>
@@ -293,9 +293,9 @@ export default function Home() {
                 Newsletter subscription ensures you are informed of campaign launches and engagement opportunities.
               </p>
             </div>
-            <div className="md:w-1/3 md:pl-8">
-              <div className="bg-indigo-900 p-6 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
-                <div className="space-y-4">
+            <div className="md:w-1/3">
+              <div className="bg-indigo-900 p-1 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
+                <div>
                   {/* MailerLite Universal Script for Support Section */}
                   <Script id="mailerlite-universal-support" strategy="afterInteractive">
                     {`
