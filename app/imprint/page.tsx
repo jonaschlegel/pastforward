@@ -1,8 +1,6 @@
-import Layout from "../layout";
 
 export default function ImprintPage() {
   return (
-    <Layout>
       <main className="container mx-auto px-4 py-12">
           <div className="max-w-3xl mx-auto">
 
@@ -35,6 +33,5 @@ export default function ImprintPage() {
         <p className="text-sm mt-8">Last updated: 27 March 2025</p>
         </div>
       </main>
-    </Layout>
   );
 }
