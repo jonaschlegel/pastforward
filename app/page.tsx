@@ -111,68 +111,75 @@ export default function Home() {
       {/* Features Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 items-center">
-              {/* Image */}
-              <div className="order-2 md:order-1 space-y-8">
-                <Image
-                  src="/images/archaeology-site.png"
-                  width={500}
-                  height={400}
-                  alt="Archaeological site with ancient ruins"
-                  className="rounded-lg w-full h-auto object-cover"
-                />
+          <div className="max-w-4xl mx-auto space-y-12">
+            {/* Text */}
+            <div>
+              <p className="mb-4 font-body">
+                That's why <strong>PastForward</strong> is being built:
+              </p>
+              <p className="mb-8 font-body">
+                A shared space for archaeologists to connect, get support, and
+                build careers with others who understand the challenges of the field.
+              </p>
+              <p className="mb-2 font-body">
+                It remains in its early stages but invites collective input.
+              </p>
+              <p className="mb-8 font-body">
+                Development progresses at a measured pace.
+              </p>
+              <p className="mb-16 font-body">
+                There are no shortcuts—only opportunities for sustained growth.
+              </p>
+            </div>
+
+            {/* Video */}
+            <div className="w-full rounded-lg overflow-hidden">
+              <video
+                controls
+                className="w-full h-auto rounded-lg"
+                poster="/images/video-poster.jpg"
+              >
+                <source src="/videos/pastforward-intro.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            {/* Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-amber-100 p-4 rounded-lg flex">
+                <div className="mr-3 p-2 flex items-center justify-center">
+                  <Search size={24} />
+                </div>
+                <p className="font-body">
+                  A directory to find others by skills, interests, or experience
+                </p>
               </div>
-              {/* Text */}
-              <div className="order-1 md:order-2">
-                <p className="mb-4 font-body">
-                  That's why PastForward is being built:
-                </p>
-                <p className="mb-8 font-body">
-                  A shared space for archaeologists to connect, get support, and
-                  build careers with others who understand the challenges of the field.
-                </p>
-                <p className="mb-2 font-body">
-                  It remains in its early stages but invites collective input.
-                </p>
-                <p className="mb-8 font-body">
-                  Development progresses at a measured pace.
-                </p>
-                <p className="mb-16 font-body">
-                  There are no shortcuts—only opportunities for sustained growth.
-                </p>
-                <div className="bg-amber-100 p-4 rounded-lg flex mb-6">
-                  <div className="mr-3 rounded-lg p-2 flex items-center justify-center">
-                    <Search size={24} />
-                  </div>
-                  <p className="font-body">
-                    A directory to find others by skills, interests, or experience
-                  </p>
+
+              <div className="bg-amber-100 p-4 rounded-lg flex">
+                <div className="mr-3 p-2 flex items-center justify-center">
+                  <ClipboardList size={24} />
                 </div>
-                <div className="bg-amber-100 p-4 rounded-lg flex mb-6">
-                  <div className="mr-3 rounded-lg p-2 flex items-center justify-center">
-                    <ClipboardList size={24} />
-                  </div>
-                  <p className="font-body">
-                    A job board for freelance, academic, and commercial opportunities
-                  </p>
+                <p className="font-body">
+                  A job board for freelance, academic, and commercial opportunities
+                </p>
+              </div>
+
+              <div className="bg-amber-100 p-4 rounded-lg flex">
+                <div className="mr-3 p-2 flex items-center justify-center">
+                  <BookOpen size={24} />
                 </div>
-                <div className="bg-amber-100 p-4 rounded-lg flex mb-6">
-                  <div className="mr-3 rounded-lg p-2 flex items-center justify-center">
-                    <BookOpen size={24} />
-                  </div>
-                  <p className="font-body">
-                    Resources, events, mentoring ideas, and perhaps even some leisure time
-                  </p>
+                <p className="font-body">
+                  Resources, events, mentoring ideas, and perhaps even some leisure time
+                </p>
+              </div>
+
+              <div className="bg-amber-100 p-4 rounded-lg flex">
+                <div className="mr-3 p-2 flex items-center justify-center">
+                  <Users size={24} />
                 </div>
-                <div className="bg-amber-100 p-4 rounded-lg flex mb-6">
-                  <div className="mr-3 rounded-lg p-2 flex items-center justify-center">
-                    <Users size={24} />
-                  </div>
-                  <p className="font-body">
-                    Community spaces to converse, share advice, and build solidarity
-                  </p>
-                </div>
+                <p className="font-body">
+                  Community spaces to converse, share advice, and build solidarity
+                </p>
               </div>
             </div>
           </div>
