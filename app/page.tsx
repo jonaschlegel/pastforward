@@ -48,8 +48,15 @@ export default function Home() {
               Rethink Careers in Archaeology.
             </h1>
             <p className="text-xl mb-8 font-body font-light">
-              Archaeology is a field full of passion, but short-term gigs and uncertain finances can make it complicated to plan a stable path. PastForward is a new platform created by archaeologists who have felt these struggles and want to change how our field works.
+            A new platform is coming. Built for archaeologists by archaeologists. For those of us who have faced struggles and want to change the status quo.
             </p>
+            <p className="text-lg leading-relaxed mb-4 font-body">
+            Archaeology isn't broken—but building a career in it can feel
+               like pushing uphill. Moving from contract to contract, grant to
+               grant, project to project. Adapting to different contexts,
+               expectations, and ways of working. Whether you're freelancing, in
+               academia, or in commercial work, the path can feel disconnected,
+               unclear, and lonely.            </p>
             <p className="text-lg leading-relaxed mb-14 font-body">
               Sign up below to learn more and help shape a future where archaeological work can be more sustainable and rewarding.
             </p>
