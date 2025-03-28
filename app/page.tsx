@@ -10,6 +10,32 @@ import {
   Users
 } from "lucide-react";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home - PastForward",
+  description: "Discover innovative approaches to sustainable careers in archaeology.",
+  openGraph: {
+    title: "Home - PastForward",
+    description: "Discover innovative approaches to sustainable careers in archaeology.",
+    url: "https://pastforward.com",
+    images: [
+      {
+        url: "https://pastforward.com/home-og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Home - PastForward",
+    description: "Discover innovative approaches to sustainable careers in archaeology.",
+    images: ["https://pastforward.com/home-og-image.jpg"],
+  },
+};
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">

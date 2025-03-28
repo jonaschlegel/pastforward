@@ -19,6 +19,26 @@ const mulish = Mulish({
 export const metadata: Metadata = {
   title: "PastForward - A shared space for archaeologists",
   description: "Building sustainable futures for archaeologists",
+  openGraph: {
+    title: "PastForward - A shared space for archaeologists",
+    description: "Building sustainable futures for archaeologists",
+    url: "https://pastforward.com",
+    siteName: "PastForward",
+    images: [
+      {
+        url: "https://pastforward.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PastForward - A shared space for archaeologists",
+    description: "Building sustainable futures for archaeologists",
+    images: ["https://pastforward.com/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
@@ -31,9 +51,7 @@ export default function RootLayout({
       <body className={`${newsreader.variable} ${mulish.variable} ${mulish.className}`}>
         <div className="flex flex-col min-h-screen">
           <NavBar />
-          <main className="flex-1">
-            {children}
-          </main>
+          <main className="flex-1">{children}</main>
           <Footer />
         </div>
         <Tracking />
