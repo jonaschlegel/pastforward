@@ -72,9 +72,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-4 font-heading">
                 Join the Movement.
               </h2>
-              <p className="mb-4 font-body text-base">
-                If you share the frustrations around short-term contracts and want more clarity in archaeology, subscribe for updates. Your insights are valuable as we develop new tools and resources.
-              </p>
+              <p className="mb-4 font-body text-base"> If the challenges of short-term contracts and ambiguous career paths have been all too familiar, subscribe for updates. Your experiences help forge a future defined by clear opportunities, innovative tools, and an upcoming crowdfunding project. </p>
               <p className="font-body font-bold text-xl">
                 Sign up for updates.
               </p>
