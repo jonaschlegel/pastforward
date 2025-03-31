@@ -247,7 +247,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-10 font-heading text-center">
-              Meet the Team
+              Meet the Team.
             </h2>
             <p className="text-base mb-20 font-body text-center">
               This platform was formed by archaeologists, designers, and community organizers who have seen firsthand how challenging our field can be. We aim to create a more stable future for everyone in archaeology.
