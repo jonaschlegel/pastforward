@@ -270,8 +270,7 @@ export default function Home() {
                   Jona Schlegel – Co-founder, Design & Web Development
                 </h3>
                 <p className="text-base mb-4 font-body">
-                  Jona’s background in landscape archaeology includes graffiti, geophysical prospection, and web design. She wants to share practical solutions for real-world challenges.
-                </p>
+                  Jona is a landscape archaeologist with a research focus on graffiti, prospection, and GIS. She is currently freelancing in visual science communication.                </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
                   <a href="https://www.jonaschlegel.com" className="underline">
