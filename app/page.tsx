@@ -298,8 +298,7 @@ export default function Home() {
                   Alexandra Dolea – Co-founder, Marketing & Events
                 </h3>
                 <p className="text-base mb-4 font-body">
-                  With a strong background in research and community management, Alexandra focuses on bringing people together to tackle professional obstacles in archaeology.
-                </p>
+                  After two decades in academia and fieldwork, Alexandra transitioned from the trenches of archaeological digs to supporting professionals facing career crossroads.                </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
                   <a
