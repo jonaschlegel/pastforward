@@ -64,6 +64,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Survey Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row rounded-lg shadow-[0px_24px_20px_-20px_#2d3748] bg-white p-10">
+            <div className="md:w-2/3 md:pr-10 text-left flex flex-col justify-center">
+              <h2 className="text-4xl font-bold mb-4 font-heading">
+              Help Shape the Future of Archaeology
+            </h2>
+            <p className="text-lg mb-6 font-body">
+              Your experience matters. Share your story and ideas to help us build a safer, more sustainable, and supportive platform for archaeologists everywhere.
+            </p>
+          
+              <p className="text-base mb-4 font-body">
+                Before we launch, we want to hear from you. We are running a short community survey to understand what archaeologists around the world really need in terms of career support. Your responses will directly shape the design and features of the platform.
+              </p>
+            
+            </div>
+            <div className="md:w-1/3 flex flex-col items-center justify-center mt-10 md:mt-0">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeqUhDaUFCNyqxk7989TjE6g_PJ6XCHg2Z-UzTWbEF2s9xy3Q/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-amber-100 rounded-lg font-bold py-4 px-8 rounded-lg text-xl mb-6 text-center"
+              >
+                Take the Survey
+              </a>
+              <div className="text-sm font-body text-center">
+                <p className="mb-2">Anonymous &middot; 3–5 min</p>
+                <p className="mb-10">Your input will directly shape the platform.</p>
+                <p>Thank you for helping us build a stronger and more connected archaeological community.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter Section */}
       <section id="newsletter" className="py-16">
         <div className="container mx-auto px-4">
