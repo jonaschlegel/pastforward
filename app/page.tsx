@@ -7,17 +7,22 @@ import {
   Search,
   ClipboardList,
   BookOpen,
-  Users
+  Users,
+  ExternalLink,
 } from "lucide-react";
+import { getFeaturedNewsArticles } from "@/lib/news";
+import { format } from "date-fns";
 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Home - PastForward",
-  description: "Discover innovative approaches to sustainable careers in archaeology.",
+  description:
+    "Discover innovative approaches to sustainable careers in archaeology.",
   openGraph: {
     title: "Home - PastForward",
-    description: "Discover innovative approaches to sustainable careers in archaeology.",
+    description:
+      "Discover innovative approaches to sustainable careers in archaeology.",
     url: "https://pastforward.com",
     images: [
       {
@@ -31,15 +36,17 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Home - PastForward",
-    description: "Discover innovative approaches to sustainable careers in archaeology.",
+    description:
+      "Discover innovative approaches to sustainable careers in archaeology.",
     images: ["https://pastforward.com/og-image-home.jpg"],
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const latestNews = await getFeaturedNewsArticles(3);
+
   return (
     <div className="flex flex-col min-h-screen">
-
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-gray-100 pt-16 pb-8">
         <div className="container mx-auto px-4">
@@ -48,18 +55,99 @@ export default function Home() {
               Rethink Careers in Archaeology.
             </h1>
             <p className="text-xl mb-8 font-body font-light">
-            A new platform is coming. Built for archaeologists by archaeologists. For those of us who have faced struggles and want to change the status quo.
+              A new platform is coming. Built for archaeologists by
+              archaeologists. For those of us who have faced struggles and want
+              to change the status quo.
             </p>
             <p className="text-lg leading-relaxed mb-4 font-body">
-            Archaeology isn't broken—but building a career in it can feel
-               like pushing uphill. Moving from contract to contract, grant to
-               grant, project to project. Adapting to different contexts,
-               expectations, and ways of working. Whether you're freelancing, in
-               academia, or in commercial work, the path can feel disconnected,
-               unclear, and lonely.            </p>
-            <p className="text-lg leading-relaxed mb-14 font-body">
-              Sign up below to learn more and help shape a future where archaeological work can be more sustainable and rewarding.
+              Archaeology isn't broken—but building a career in it can feel like
+              pushing uphill. Moving from contract to contract, grant to grant,
+              project to project. Adapting to different contexts, expectations,
+              and ways of working. Whether you're freelancing, in academia, or
+              in commercial work, the path can feel disconnected, unclear, and
+              lonely.{" "}
             </p>
+            <p className="text-lg leading-relaxed mb-14 font-body">
+              Sign up below to learn more and help shape a future where
+              archaeological work can be more sustainable and rewarding.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest News Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4 font-heading">
+                Latest News
+              </h2>
+              <p className="text-base mb-6 font-body">
+                Stay updated with the latest developments from PastForward Hub
+                as we build the future of archaeological careers.
+              </p>
+              <Link
+                href="/news"
+                className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium transition-colors"
+              >
+                View all news →
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {latestNews.map((article) => (
+                <div
+                  key={article.slug}
+                  className="bg-white rounded-lg shadow-[0px_24px_20px_-20px_#2d3748] p-6 hover:shadow-[0px_12px_24px_-8px_#2d3748] transition-shadow duration-300"
+                >
+                  <div className="flex justify-between items-start mb-3">
+                    <div className="flex-1">
+                      {article.featured && (
+                        <span className="inline-block px-2 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-lg mb-2">
+                          Featured
+                        </span>
+                      )}
+                      <h3 className="text-lg font-bold font-heading text-gray-900">
+                        {article.hasPage ? (
+                          <Link
+                            href={`/news/${article.slug}`}
+                            className="hover:text-indigo-700 transition-colors"
+                          >
+                            {article.title}
+                          </Link>
+                        ) : (
+                          <span>{article.title}</span>
+                        )}
+                      </h3>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 font-body text-sm mb-4 line-clamp-3">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex justify-end items-center">
+                    {article.externalLink ? (
+                      <a
+                        href={article.externalLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
+                      >
+                        Watch episode{" "}
+                        <ExternalLink size={12} className="ml-1" />
+                      </a>
+                    ) : article.hasPage ? (
+                      <Link
+                        href={`/news/${article.slug}`}
+                        className="text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
+                      >
+                        Read more →
+                      </Link>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -70,16 +158,20 @@ export default function Home() {
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row rounded-lg shadow-[0px_24px_20px_-20px_#2d3748] bg-white p-10">
             <div className="md:w-2/3 md:pr-10 text-left flex flex-col justify-center">
               <h2 className="text-4xl font-bold mb-4 font-heading">
-              Help Shape the Future of Archaeology
-            </h2>
-            <p className="text-lg mb-6 font-body">
-              Your experience matters. Share your story and ideas to help us build a safer, more sustainable, and supportive platform for archaeologists everywhere.
-            </p>
-          
-              <p className="text-base mb-4 font-body">
-                Before we launch, we want to hear from you. We are running a short community survey to understand what archaeologists around the world really need in terms of career support. Your responses will directly shape the design and features of the platform.
+                Help Shape the Future of Archaeology
+              </h2>
+              <p className="text-lg mb-6 font-body">
+                Your experience matters. Share your story and ideas to help us
+                build a safer, more sustainable, and supportive platform for
+                archaeologists everywhere.
               </p>
-            
+
+              <p className="text-base mb-4 font-body">
+                Before we launch, we want to hear from you. We are running a
+                short community survey to understand what archaeologists around
+                the world really need in terms of career support. Your responses
+                will directly shape the design and features of the platform.
+              </p>
             </div>
             <div className="md:w-1/3 flex flex-col items-center justify-center mt-10 md:mt-0">
               <a
@@ -92,8 +184,13 @@ export default function Home() {
               </a>
               <div className="text-sm font-body text-center">
                 <p className="mb-2">Anonymous &middot; 3–5 min</p>
-                <p className="mb-10">Your input will directly shape the platform.</p>
-                <p>Thank you for helping us build a stronger and more connected archaeological community.</p>
+                <p className="mb-10">
+                  Your input will directly shape the platform.
+                </p>
+                <p>
+                  Thank you for helping us build a stronger and more connected
+                  archaeological community.
+                </p>
               </div>
             </div>
           </div>
@@ -108,14 +205,24 @@ export default function Home() {
               <h2 className="text-3xl font-bold mb-4 font-heading">
                 Join the Movement.
               </h2>
-              <p className="mb-4 font-body text-base"> If the challenges of short-term contracts and ambiguous career paths have been all too familiar, subscribe for updates. Your experiences help forge a future defined by clear opportunities, innovative tools, and an upcoming crowdfunding project. </p>
+              <p className="mb-4 font-body text-base">
+                {" "}
+                If the challenges of short-term contracts and ambiguous career
+                paths have been all too familiar, subscribe for updates. Your
+                experiences help forge a future defined by clear opportunities,
+                innovative tools, and an upcoming crowdfunding project.{" "}
+              </p>
               <p className="font-body font-bold text-xl">
                 Sign up for updates.
               </p>
             </div>
             <div className="order-2 md:order-1 md:w-1/3 md:pl-8">
               <div className="bg-indigo-900 p-1 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
-                <Script id="mailerlite-universal" strategy="afterInteractive" className="font-body">
+                <Script
+                  id="mailerlite-universal"
+                  strategy="afterInteractive"
+                  className="font-body"
+                >
                   {`
                     (function(w,d,e,u,f,l,n){
                       w[f]=w[f]||function(){
@@ -145,7 +252,10 @@ export default function Home() {
               Everyday Challenges in Archaeology.
             </h2>
             <p className="mb-8 font-body text-base text-center px-4 md:px-20">
-              Archaeology can be fulfilling, but many professionals deal with obstacles like unstable work, limited support, and missing networks. PastForward aims to address these hurdles and offer ways to build a more reliable career path.
+              Archaeology can be fulfilling, but many professionals deal with
+              obstacles like unstable work, limited support, and missing
+              networks. PastForward aims to address these hurdles and offer ways
+              to build a more reliable career path.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16 font-bold text-xl">
               <div className="relative rounded-lg shadow-[0px_24px_20px_-20px_#2d3748] overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 min-h-[250px]">
@@ -217,10 +327,14 @@ export default function Home() {
                 What to Expect in the Future.
               </h2>
               <p className="mb-4 font-body">
-                PastForward is still developing. This preview is an invitation to share your thoughts, not a finished product. We will offer updates and practical tools for archaeologists looking for more stability and collaboration.
+                PastForward is still developing. This preview is an invitation
+                to share your thoughts, not a finished product. We will offer
+                updates and practical tools for archaeologists looking for more
+                stability and collaboration.
               </p>
               <p className="mb-8 font-body">
-                A short video below provides a first look at the platform’s direction. We welcome your ideas to make it even better.
+                A short video below provides a first look at the platform’s
+                direction. We welcome your ideas to make it even better.
               </p>
             </div>
 
@@ -245,7 +359,8 @@ export default function Home() {
                     <Search size={24} />
                   </div>
                   <p className="font-body">
-                    <strong>Directory:</strong> Connect with peers based on skills, interests, or experience.
+                    <strong>Directory:</strong> Connect with peers based on
+                    skills, interests, or experience.
                   </p>
                 </div>
                 <div className="bg-amber-100 p-4 rounded-lg flex">
@@ -253,7 +368,8 @@ export default function Home() {
                     <ClipboardList size={24} />
                   </div>
                   <p className="font-body">
-                    <strong>Job Board:</strong> Explore freelance, academic, and commercial opportunities.
+                    <strong>Job Board:</strong> Explore freelance, academic, and
+                    commercial opportunities.
                   </p>
                 </div>
                 <div className="bg-amber-100 p-4 rounded-lg flex">
@@ -261,7 +377,8 @@ export default function Home() {
                     <BookOpen size={24} />
                   </div>
                   <p className="font-body">
-                    <strong>Resources:</strong> Access curated content, events, and mentorship ideas.
+                    <strong>Resources:</strong> Access curated content, events,
+                    and mentorship ideas.
                   </p>
                 </div>
                 <div className="bg-amber-100 p-4 rounded-lg flex">
@@ -269,7 +386,8 @@ export default function Home() {
                     <Users size={24} />
                   </div>
                   <p className="font-body">
-                    <strong>Community Spaces:</strong> Join interactive forums to share advice and build solidarity.
+                    <strong>Community Spaces:</strong> Join interactive forums
+                    to share advice and build solidarity.
                   </p>
                 </div>
               </div>
@@ -286,7 +404,10 @@ export default function Home() {
               Meet the Team.
             </h2>
             <p className="text-base mb-20 font-body text-center">
-              This platform was formed by archaeologists, designers, and community organizers who have seen firsthand how challenging our field can be. We aim to create a more stable future for everyone in archaeology.
+              This platform was formed by archaeologists, designers, and
+              community organizers who have seen firsthand how challenging our
+              field can be. We aim to create a more stable future for everyone
+              in archaeology.
             </p>
 
             <div className="flex flex-col md:flex-row items-center mb-20">
@@ -306,7 +427,10 @@ export default function Home() {
                   Jona Schlegel – Co-founder, Design & Web Development
                 </h3>
                 <p className="text-base mb-4 font-body">
-                  Jona is a landscape archaeologist with a research focus on graffiti, prospection, and GIS. She is currently freelancing in visual science communication.                </p>
+                  Jona is a landscape archaeologist with a research focus on
+                  graffiti, prospection, and GIS. She is currently freelancing
+                  in visual science communication.{" "}
+                </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
                   <a href="https://www.jonaschlegel.com" className="underline">
@@ -333,7 +457,10 @@ export default function Home() {
                   Alexandra Dolea – Co-founder, Marketing & Events
                 </h3>
                 <p className="text-base mb-4 font-body">
-                  After two decades in academia and fieldwork, Alexandra transitioned from the trenches of archaeological digs to supporting professionals facing career crossroads.                </p>
+                  After two decades in academia and fieldwork, Alexandra
+                  transitioned from the trenches of archaeological digs to
+                  supporting professionals facing career crossroads.{" "}
+                </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
                   <a
@@ -363,7 +490,9 @@ export default function Home() {
                   Laura Coltofean – Co-founder, Crowdfunding Campaigns
                 </h3>
                 <p className="text-base mb-4 font-body">
-                  Laura has extensive experience in campaign building and knows how essential community support can be. She believes in forging a more stable, supportive future for archaeologists.
+                  Laura has extensive experience in campaign building and knows
+                  how essential community support can be. She believes in
+                  forging a more stable, supportive future for archaeologists.
                 </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
@@ -386,18 +515,25 @@ export default function Home() {
                 Support the Journey.
               </h2>
               <p className="mb-4 font-body">
-                PastForward takes time, careful planning, and a dedicated community. A Kickstarter campaign is coming soon, and early supporters will receive exclusive updates.
+                PastForward takes time, careful planning, and a dedicated
+                community. A Kickstarter campaign is coming soon, and early
+                supporters will receive exclusive updates.
               </p>
               <p className="mb-4 font-body">
-                By subscribing to our newsletter, you help shape the platform and stay informed on new developments.
+                By subscribing to our newsletter, you help shape the platform
+                and stay informed on new developments.
               </p>
               <p className="mb-4 font-body">
-                Thank you for being part of a movement that seeks lasting change in archaeology.
+                Thank you for being part of a movement that seeks lasting change
+                in archaeology.
               </p>
             </div>
             <div className="md:w-1/3">
               <div className="bg-indigo-900 p-1 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
-                <Script id="mailerlite-universal-support" strategy="afterInteractive">
+                <Script
+                  id="mailerlite-universal-support"
+                  strategy="afterInteractive"
+                >
                   {`
                     (function(w,d,e,u,f,l,n){
                       w[f]=w[f]||function(){

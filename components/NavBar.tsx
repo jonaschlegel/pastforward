@@ -8,8 +8,15 @@ export default function NavBar() {
           <Link href="/">PastForward</Link>
         </div>
         <nav className="flex space-x-6 text-sm" aria-label="Main Navigation">
-          <Link href="/#newsletter" className="text-gray-600">newsletter</Link>
-          <Link href="/#crowdfunding" className="text-gray-600">crowdfunding</Link>
+          <Link href="/news" className="text-gray-600">
+            news
+          </Link>
+          <Link href="/#newsletter" className="text-gray-600">
+            newsletter
+          </Link>
+          <Link href="/#crowdfunding" className="text-gray-600">
+            crowdfunding
+          </Link>
         </nav>
       </div>
     </header>

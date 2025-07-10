@@ -19,6 +19,12 @@ const mulish = Mulish({
 export const metadata: Metadata = {
   title: "PastForward - A shared space for archaeologists",
   description: "Building sustainable futures for archaeologists",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
   openGraph: {
     title: "PastForward - A shared space for archaeologists",
     description: "Building sustainable futures for archaeologists",
