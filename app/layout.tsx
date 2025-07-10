@@ -5,6 +5,7 @@ import { Newsreader, Mulish } from "next/font/google";
 import Tracking from "./Tracking";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <ScrollToTop />
         <Tracking />
       </body>
     </html>
