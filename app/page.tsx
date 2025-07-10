@@ -10,7 +10,7 @@ import {
   Users,
   ExternalLink,
 } from "lucide-react";
-import { getFeaturedNewsArticles } from "@/lib/news";
+import { getFeaturedNewsArticles, getExternalLinkText } from "@/lib/news";
 import { format } from "date-fns";
 
 import type { Metadata } from "next";
@@ -133,7 +133,7 @@ export default async function Home() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
                       >
-                        Watch episode{" "}
+                        {getExternalLinkText(article.externalLink)}{" "}
                         <ExternalLink size={12} className="ml-1" />
                       </a>
                     ) : article.hasPage ? (

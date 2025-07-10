@@ -1,4 +1,4 @@
-import { getTimelineArticles } from "@/lib/news";
+import { getTimelineArticles, getExternalLinkText } from "@/lib/news";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import type { Metadata } from "next";
@@ -111,7 +111,7 @@ export default async function NewsPage() {
                                   rel="noopener noreferrer"
                                   className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
                                 >
-                                  Watch episode{" "}
+                                  {getExternalLinkText(article.externalLink)}{" "}
                                   <ExternalLink size={12} className="ml-1" />
                                 </a>
                               ) : article.hasPage ? (

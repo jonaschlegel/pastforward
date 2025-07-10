@@ -74,6 +74,53 @@ export async function getFeaturedNewsArticles(
   return featuredArticles.slice(0, limit);
 }
 
+export function getExternalLinkText(url: string): string {
+  if (!url) return "Visit link";
+
+  const lowerUrl = url.toLowerCase();
+
+  // YouTube videos (podcasts, interviews, etc.)
+  if (lowerUrl.includes("youtube.com") || lowerUrl.includes("youtu.be")) {
+    return "Watch episode";
+  }
+
+  // LinkedIn
+  if (lowerUrl.includes("linkedin.com")) {
+    return "Visit LinkedIn";
+  }
+
+  // Academic/Newsletter websites
+  if (
+    lowerUrl.includes("e-a-a.org") ||
+    lowerUrl.includes("newsletter") ||
+    lowerUrl.includes("announcement")
+  ) {
+    return "Read announcement";
+  }
+
+  // Podcast platforms
+  if (
+    lowerUrl.includes("spotify.com") ||
+    lowerUrl.includes("apple.com/podcast") ||
+    lowerUrl.includes("anchor.fm")
+  ) {
+    return "Listen to episode";
+  }
+
+  // Social media
+  if (
+    lowerUrl.includes("facebook.com") ||
+    lowerUrl.includes("twitter.com") ||
+    lowerUrl.includes("x.com") ||
+    lowerUrl.includes("instagram.com")
+  ) {
+    return "View post";
+  }
+
+  // Default fallback
+  return "Visit website";
+}
+
 export interface TimelineGroup {
   year: number;
   month: number;
