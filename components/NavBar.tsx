@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function NavBar() {
+export default function Navbar() {
   return (
     <header className="sticky top-0 border-b bg-white z-50" role="banner">
       <div className="container mx-auto p-4 flex justify-between items-center">
