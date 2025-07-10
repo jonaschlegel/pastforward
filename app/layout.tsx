@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   title: "PastForward - A shared space for archaeologists",
   description: "Building sustainable futures for archaeologists",
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
-  manifest: '/site.webmanifest',
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "PastForward - A shared space for archaeologists",
     description: "Building sustainable futures for archaeologists",
@@ -54,7 +54,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${newsreader.variable} ${mulish.variable} ${mulish.className}`}>
+      <body
+        className={`${newsreader.variable} ${mulish.variable} ${mulish.className}`}
+      >
         <div className="flex flex-col min-h-screen">
           <NavBar />
           <main className="flex-1">{children}</main>
