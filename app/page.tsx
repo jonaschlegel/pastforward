@@ -84,8 +84,8 @@ export default async function Home() {
                 Latest News
               </h2>
               <p className="text-base mb-6 font-body">
-                Stay updated with the latest developments from PastForward Hub
-                as we build the future of archaeological careers.
+                Stay updated with the latest developments from PastForwardHub as
+                we build the future of archaeological careers.
               </p>
               <Link
                 href="/news"

@@ -6,11 +6,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "News - PastForward",
   description:
-    "Latest updates from PastForward Hub - building the future of archaeological careers.",
+    "Latest updates from PastForwardHub - building the future of archaeological careers.",
   openGraph: {
     title: "News - PastForward",
     description:
-      "Latest updates from PastForward Hub - building the future of archaeological careers.",
+      "Latest updates from PastForwardHub - building the future of archaeological careers.",
     url: "https://pastforward.com/news",
     type: "website",
   },
@@ -29,7 +29,7 @@ export default async function NewsPage() {
               Latest News
             </h1>
             <p className="text-xl mb-8 font-body font-light">
-              Stay updated with the latest developments from PastForward Hub as
+              Stay updated with the latest developments from PastForwardHub as
               we build the future of archaeological careers.
             </p>
           </div>
