@@ -3,9 +3,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Newsreader, Mulish } from "next/font/google";
 import Tracking from "./Tracking";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ScrollToTop from "../components/ScrollToTop";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const newsreader = Newsreader({
   subsets: ["latin"],

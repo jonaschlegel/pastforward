@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
-import { Button } from "./Button";
+import { Button } from "@/components/Button";
 import { cn } from "@/lib/utils";
 
 export default function ScrollToTop() {
