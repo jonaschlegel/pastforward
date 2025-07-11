@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Newsreader, Mulish } from "next/font/google";
 import Tracking from "./Tracking";
-import Navbar from "@/components/Navbar";
+import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -59,7 +59,7 @@ export default function RootLayout({
         className={`${newsreader.variable} ${mulish.variable} ${mulish.className}`}
       >
         <div className="flex flex-col min-h-screen">
-          <Navbar />
+          <Navigation />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
