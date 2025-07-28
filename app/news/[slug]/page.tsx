@@ -1,11 +1,12 @@
 import ArticlePageTracker from '@/components/ArticlePageTracker';
+import {
+  BackToAllNewsLink,
+  BackToNewsLink,
+} from '@/components/ArticleTracking';
 import { getAllNewsArticles, getNewsArticleBySlug } from '@/lib/news';
-import { track } from '@/lib/tracking';
 import { useMDXComponents } from '@/mdx-components';
-import { ArrowLeft } from 'lucide-react';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 interface NewsArticlePageProps {
@@ -31,17 +32,17 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article Not Found - PastForward",
+      title: "Article Not Found - PastForwardHub",
     };
   }
 
   return {
-    title: `${article.title} - PastForward`,
+    title: `${article.title} - PastForwardHub`,
     description: article.excerpt,
     openGraph: {
-      title: `${article.title} - PastForward`,
+      title: `${article.title} - PastForwardHub`,
       description: article.excerpt,
-      url: `https://pastforward.com/news/${article.slug}`,
+      url: `https://pastforwardhub.com/news/${article.slug}`,
       type: "article",
     },
   };
@@ -57,10 +58,6 @@ export default async function NewsArticlePage({
     notFound();
   }
 
-  const handleBackClick = () => {
-    track.navigate("news_back");
-  };
-
   return (
     <div className="flex flex-col min-h-screen">
       <ArticlePageTracker
@@ -71,14 +68,7 @@ export default async function NewsArticlePage({
       <section className="bg-gradient-to-b from-white to-gray-100 pt-16 pb-8">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <Link
-              href="/news"
-              className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body mb-6 transition-colors"
-              onClick={handleBackClick}
-            >
-              <ArrowLeft size={16} className="mr-2" />
-              Back to News
-            </Link>
+            <BackToNewsLink className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body mb-6 transition-colors" />
 
             <div className="text-center">
               <div className="flex justify-center items-center gap-4 mb-4">
@@ -119,14 +109,7 @@ export default async function NewsArticlePage({
       <section className="py-8 bg-gradient-to-b from-white to-gray-100 border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Link
-              href="/news"
-              className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium transition-colors"
-              onClick={handleBackClick}
-            >
-              <ArrowLeft size={16} className="mr-2" />
-              Back to all news
-            </Link>
+            <BackToAllNewsLink className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium transition-colors" />
           </div>
         </div>
       </section>

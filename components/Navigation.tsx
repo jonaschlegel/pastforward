@@ -1,3 +1,5 @@
+"use client";
+
 import { track } from '@/lib/tracking';
 import Link from 'next/link';
 
@@ -11,7 +13,7 @@ export default function Navigation() {
       <div className="container mx-auto p-4 flex justify-between items-center">
         <div className="font-bold text-xl">
           <Link href="/" onClick={() => handleNavClick("home")}>
-            PastForward
+            PastForwardHub
           </Link>
         </div>
         <nav className="flex space-x-6 text-sm" aria-label="Main Navigation">

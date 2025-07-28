@@ -1,3 +1,5 @@
+"use client";
+
 import { track } from '@/lib/tracking';
 import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
@@ -18,7 +20,7 @@ export default function Footer() {
           <div className="flex justify-between items-center">
             <div className="font-bold">
               <Link href="/" onClick={() => handleFooterNavClick("home")}>
-                PastForward
+                PastForwardHub
               </Link>
             </div>
             <div className="flex space-x-4 text-xs">
@@ -81,7 +83,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="mt-4 text-sm text-gray-500 font-body">
-            © 2025 PastForward
+            © 2025 PastForwardHub
           </div>
         </div>
       </div>

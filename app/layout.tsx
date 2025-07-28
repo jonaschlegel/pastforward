@@ -19,7 +19,7 @@ const mulish = Mulish({
 });
 
 export const metadata: Metadata = {
-  title: "PastForward - A shared space for archaeologists",
+  title: "PastForwardHub - A shared space for archaeologists",
   description: "Building sustainable futures for archaeologists",
   icons: {
     icon: "/favicon.ico",
@@ -28,13 +28,13 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "PastForward - A shared space for archaeologists",
+    title: "PastForwardHub - A shared space for archaeologists",
     description: "Building sustainable futures for archaeologists",
-    url: "https://pastforward.com",
-    siteName: "PastForward",
+    url: "https://pastforwardhub.com",
+    siteName: "PastForwardHub",
     images: [
       {
-        url: "https://pastforward.com/og-image.jpg",
+        url: "https://pastforwardhub.com/og-image.jpg",
         width: 1200,
         height: 630,
       },
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PastForward - A shared space for archaeologists",
+    title: "PastForwardHub - A shared space for archaeologists",
     description: "Building sustainable futures for archaeologists",
-    images: ["https://pastforward.com/og-image.jpg"],
+    images: ["https://pastforwardhub.com/og-image.jpg"],
   },
 };
 

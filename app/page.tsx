@@ -1,6 +1,12 @@
+import {
+  ExternalTrackedLink,
+  NewsArticleLink,
+  SurveyButton,
+  TrackedNewsLink,
+  VideoPlayer,
+} from '@/components/HomePageTracking';
 import NewsletterTracker from '@/components/NewsletterTracker';
 import { getExternalLinkText, getFeaturedNewsArticles } from '@/lib/news';
-import { track } from '@/lib/tracking';
 import { format } from 'date-fns';
 import {
   BookOpen,
@@ -17,17 +23,17 @@ import Link from 'next/link';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "Home - PastForward",
+  title: "Home - PastForwardHub",
   description:
     "Discover innovative approaches to sustainable careers in archaeology.",
   openGraph: {
-    title: "Home - PastForward",
+    title: "Home - PastForwardHub",
     description:
       "Discover innovative approaches to sustainable careers in archaeology.",
-    url: "https://pastforward.com",
+    url: "https://pastforwardhub.com",
     images: [
       {
-        url: "https://pastforward.com/og-image-home.jpg",
+        url: "https://pastforwardhub.com/og-image-home.jpg",
         width: 1200,
         height: 630,
       },
@@ -36,35 +42,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Home - PastForward",
+    title: "Home - PastForwardHub",
     description:
       "Discover innovative approaches to sustainable careers in archaeology.",
-    images: ["https://pastforward.com/og-image-home.jpg"],
+    images: ["https://pastforwardhub.com/og-image-home.jpg"],
   },
 };
 
 export default async function Home() {
   const latestNews = await getFeaturedNewsArticles(3);
-
-  const handleNewsClick = (title: string, slug: string) => {
-    track.newsArticle(title, slug);
-  };
-
-  const handleExternalLinkClick = (url: string, linkText: string) => {
-    track.externalLink(url, linkText);
-  };
-
-  const handleSurveyClick = () => {
-    track.surveyClick();
-  };
-
-  const handleVideoPlay = () => {
-    track.videoPlay();
-  };
-
-  const handleSocialClick = (platform: string, url: string) => {
-    track.socialMedia(platform, url);
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -108,13 +94,12 @@ export default async function Home() {
                 Stay updated with the latest developments from PastForwardHub as
                 we build the future of archaeological careers.
               </p>
-              <Link
+              <TrackedNewsLink
                 href="/news"
                 className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium transition-colors"
-                onClick={() => track.navigate("news_all")}
               >
                 View all news →
-              </Link>
+              </TrackedNewsLink>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -131,19 +116,10 @@ export default async function Home() {
                         </span>
                       )}
                       <h3 className="text-lg font-bold font-heading text-gray-900">
-                        {article.hasPage ? (
-                          <Link
-                            href={`/news/${article.slug}`}
-                            className="hover:text-indigo-700 transition-colors"
-                            onClick={() =>
-                              handleNewsClick(article.title, article.slug)
-                            }
-                          >
-                            {article.title}
-                          </Link>
-                        ) : (
-                          <span>{article.title}</span>
-                        )}
+                        <NewsArticleLink
+                          article={article}
+                          className="hover:text-indigo-700 transition-colors"
+                        />
                       </h3>
                     </div>
                   </div>
@@ -152,31 +128,18 @@ export default async function Home() {
                   </p>
                   <div className="flex justify-end items-center">
                     {article.externalLink ? (
-                      <a
+                      <ExternalTrackedLink
                         href={article.externalLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
-                        onClick={() =>
-                          handleExternalLinkClick(
-                            article.externalLink!,
-                            getExternalLinkText(article.externalLink!)
-                          )
-                        }
                       >
                         {getExternalLinkText(article.externalLink)}{" "}
                         <ExternalLink size={12} className="ml-1" />
-                      </a>
+                      </ExternalTrackedLink>
                     ) : article.hasPage ? (
-                      <Link
-                        href={`/news/${article.slug}`}
+                      <NewsArticleLink
+                        article={article}
                         className="text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
-                        onClick={() =>
-                          handleNewsClick(article.title, article.slug)
-                        }
-                      >
-                        Read more →
-                      </Link>
+                      />
                     ) : null}
                   </div>
                 </div>
@@ -208,15 +171,12 @@ export default async function Home() {
               </p>
             </div>
             <div className="md:w-1/3 flex flex-col items-center justify-center mt-10 md:mt-0">
-              <a
+              <SurveyButton
                 href="https://docs.google.com/forms/d/e/1FAIpQLSeqUhDaUFCNyqxk7989TjE6g_PJ6XCHg2Z-UzTWbEF2s9xy3Q/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-block bg-amber-100 rounded-lg font-bold py-4 px-8 rounded-lg text-xl mb-6 text-center"
-                onClick={handleSurveyClick}
               >
                 Take the Survey
-              </a>
+              </SurveyButton>
               <div className="text-sm font-body text-center">
                 <p className="mb-2">Anonymous &middot; 3–5 min</p>
                 <p className="mb-10">
@@ -290,8 +250,8 @@ export default async function Home() {
             <p className="mb-8 font-body text-base text-center px-4 md:px-20">
               Archaeology can be fulfilling, but many professionals deal with
               obstacles like unstable work, limited support, and missing
-              networks. PastForward aims to address these hurdles and offer ways
-              to build a more reliable career path.
+              networks. PastForwardHub aims to address these hurdles and offer
+              ways to build a more reliable career path.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-16 font-bold text-xl">
               <div className="relative rounded-lg shadow-[0px_24px_20px_-20px_#2d3748] overflow-hidden transition-transform duration-300 ease-in-out hover:scale-105 min-h-[250px]">
@@ -363,10 +323,10 @@ export default async function Home() {
                 What to Expect in the Future.
               </h2>
               <p className="mb-4 font-body">
-                PastForward is still developing. This preview is an invitation
-                to share your thoughts, not a finished product. We will offer
-                updates and practical tools for archaeologists looking for more
-                stability and collaboration.
+                PastForwardHub is still developing. This preview is an
+                invitation to share your thoughts, not a finished product. We
+                will offer updates and practical tools for archaeologists
+                looking for more stability and collaboration.
               </p>
               <p className="mb-8 font-body">
                 A short video below provides a first look at the platform’s
@@ -375,15 +335,10 @@ export default async function Home() {
             </div>
 
             <div className="w-full rounded-lg overflow-hidden mb-10">
-              <video
-                controls
-                className="w-full h-auto rounded-lg"
+              <VideoPlayer
                 poster="/images/video-poster.jpg"
-                onPlay={handleVideoPlay}
-              >
-                <source src="/videos/pastforward-intro.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                src="/videos/pastforward-intro.mp4"
+              />
             </div>
 
             <div>
@@ -470,18 +425,12 @@ export default async function Home() {
                 </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
-                  <a
+                  <ExternalTrackedLink
                     href="https://www.jonaschlegel.com"
                     className="underline"
-                    onClick={() =>
-                      handleExternalLinkClick(
-                        "https://www.jonaschlegel.com",
-                        "Jona Schlegel Portfolio"
-                      )
-                    }
                   >
                     here
-                  </a>
+                  </ExternalTrackedLink>
                 </p>
               </div>
             </div>
@@ -509,18 +458,12 @@ export default async function Home() {
                 </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
-                  <a
+                  <ExternalTrackedLink
                     href="https://www.ilovearchaeology.com/"
                     className="underline"
-                    onClick={() =>
-                      handleExternalLinkClick(
-                        "https://www.ilovearchaeology.com/",
-                        "Alexandra Dolea I Love Archaeology"
-                      )
-                    }
                   >
                     here
-                  </a>
+                  </ExternalTrackedLink>
                 </p>
               </div>
             </div>
@@ -548,18 +491,12 @@ export default async function Home() {
                 </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
-                  <a
+                  <ExternalTrackedLink
                     href="https://lauracoltofean.com/"
                     className="underline"
-                    onClick={() =>
-                      handleExternalLinkClick(
-                        "https://lauracoltofean.com/",
-                        "Laura Coltofean Portfolio"
-                      )
-                    }
                   >
                     here
-                  </a>
+                  </ExternalTrackedLink>
                 </p>
               </div>
             </div>
@@ -576,7 +513,7 @@ export default async function Home() {
                 Support the Journey.
               </h2>
               <p className="mb-4 font-body">
-                PastForward takes time, careful planning, and a dedicated
+                PastForwardHub takes time, careful planning, and a dedicated
                 community. A Kickstarter campaign is coming soon, and early
                 supporters will receive exclusive updates.
               </p>

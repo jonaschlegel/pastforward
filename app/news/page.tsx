@@ -1,32 +1,25 @@
-import { getExternalLinkText, getTimelineArticles } from '@/lib/news';
-import { track } from '@/lib/tracking';
-import { ExternalLink } from 'lucide-react';
+import {
+  TrackedExternalLinkWithIcon,
+  TrackedNewsLink,
+} from '@/components/NewsPageTracking';
+import { getTimelineArticles } from '@/lib/news';
 import type { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "News - PastForward",
+  title: "News - PastForwardHub",
   description:
     "Latest updates from PastForwardHub - building the future of archaeological careers.",
   openGraph: {
-    title: "News - PastForward",
+    title: "News - PastForwardHub",
     description:
       "Latest updates from PastForwardHub - building the future of archaeological careers.",
-    url: "https://pastforward.com/news",
+    url: "https://pastforwardhub.com/news",
     type: "website",
   },
 };
 
 export default async function NewsPage() {
   const timelineGroups = await getTimelineArticles();
-
-  const handleNewsClick = (title: string, slug: string) => {
-    track.newsArticle(title, slug);
-  };
-
-  const handleExternalLinkClick = (url: string, linkText: string) => {
-    track.externalLink(url, linkText);
-  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -93,18 +86,14 @@ export default async function NewsPage() {
                             <div className="flex justify-between items-start mb-3">
                               <h3 className="text-xl font-bold font-heading text-gray-900 flex-1">
                                 {article.hasPage ? (
-                                  <Link
+                                  <TrackedNewsLink
                                     href={`/news/${article.slug}`}
+                                    title={article.title}
+                                    slug={article.slug}
                                     className="hover:text-indigo-700 transition-colors"
-                                    onClick={() =>
-                                      handleNewsClick(
-                                        article.title,
-                                        article.slug
-                                      )
-                                    }
                                   >
                                     {article.title}
-                                  </Link>
+                                  </TrackedNewsLink>
                                 ) : (
                                   <span>{article.title}</span>
                                 )}
@@ -120,31 +109,19 @@ export default async function NewsPage() {
                             </p>
                             <div className="flex justify-end items-center">
                               {article.externalLink ? (
-                                <a
+                                <TrackedExternalLinkWithIcon
                                   href={article.externalLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
                                   className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
-                                  onClick={() =>
-                                    handleExternalLinkClick(
-                                      article.externalLink!,
-                                      getExternalLinkText(article.externalLink!)
-                                    )
-                                  }
-                                >
-                                  {getExternalLinkText(article.externalLink)}{" "}
-                                  <ExternalLink size={12} className="ml-1" />
-                                </a>
+                                />
                               ) : article.hasPage ? (
-                                <Link
+                                <TrackedNewsLink
                                   href={`/news/${article.slug}`}
+                                  title={article.title}
+                                  slug={article.slug}
                                   className="text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
-                                  onClick={() =>
-                                    handleNewsClick(article.title, article.slug)
-                                  }
                                 >
                                   Read more →
-                                </Link>
+                                </TrackedNewsLink>
                               ) : null}
                             </div>
                           </div>

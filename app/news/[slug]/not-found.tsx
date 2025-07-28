@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import { ArrowLeft, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
 
 export default function NotFound() {
   return (
@@ -96,7 +96,7 @@ export default function NotFound() {
                 </h4>
                 <p className="text-gray-600 font-body">
                   Check our homepage for the latest featured news and updates
-                  from PastForward.
+                  from PastForwardHub.
                 </p>
               </div>
               <div className="bg-amber-50 p-4 rounded-lg">
