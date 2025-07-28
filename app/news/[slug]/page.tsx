@@ -1,10 +1,12 @@
-import { getNewsArticleBySlug, getAllNewsArticles } from "@/lib/news";
-import { notFound } from "next/navigation";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
-import type { Metadata } from "next";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { useMDXComponents } from "@/mdx-components";
+import ArticlePageTracker from '@/components/ArticlePageTracker';
+import { getAllNewsArticles, getNewsArticleBySlug } from '@/lib/news';
+import { track } from '@/lib/tracking';
+import { useMDXComponents } from '@/mdx-components';
+import { ArrowLeft } from 'lucide-react';
+import type { Metadata } from 'next';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface NewsArticlePageProps {
   params: Promise<{
@@ -55,8 +57,16 @@ export default async function NewsArticlePage({
     notFound();
   }
 
+  const handleBackClick = () => {
+    track.navigate("news_back");
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <ArticlePageTracker
+        articleTitle={article.title}
+        articleSlug={article.slug}
+      />
       {/* Header Section */}
       <section className="bg-gradient-to-b from-white to-gray-100 pt-16 pb-8">
         <div className="container mx-auto px-4">
@@ -64,6 +74,7 @@ export default async function NewsArticlePage({
             <Link
               href="/news"
               className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body mb-6 transition-colors"
+              onClick={handleBackClick}
             >
               <ArrowLeft size={16} className="mr-2" />
               Back to News
@@ -111,6 +122,7 @@ export default async function NewsArticlePage({
             <Link
               href="/news"
               className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium transition-colors"
+              onClick={handleBackClick}
             >
               <ArrowLeft size={16} className="mr-2" />
               Back to all news

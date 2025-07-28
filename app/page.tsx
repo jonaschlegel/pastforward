@@ -1,19 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
-import Script from "next/script";
+import NewsletterTracker from '@/components/NewsletterTracker';
+import { getExternalLinkText, getFeaturedNewsArticles } from '@/lib/news';
+import { track } from '@/lib/tracking';
+import { format } from 'date-fns';
 import {
+  BookOpen,
+  ClipboardList,
+  ExternalLink,
   Facebook,
   Instagram,
   Search,
-  ClipboardList,
-  BookOpen,
   Users,
-  ExternalLink,
-} from "lucide-react";
-import { getFeaturedNewsArticles, getExternalLinkText } from "@/lib/news";
-import { format } from "date-fns";
-
-import type { Metadata } from "next";
+} from 'lucide-react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: "Home - PastForward",
@@ -44,6 +45,26 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const latestNews = await getFeaturedNewsArticles(3);
+
+  const handleNewsClick = (title: string, slug: string) => {
+    track.newsArticle(title, slug);
+  };
+
+  const handleExternalLinkClick = (url: string, linkText: string) => {
+    track.externalLink(url, linkText);
+  };
+
+  const handleSurveyClick = () => {
+    track.surveyClick();
+  };
+
+  const handleVideoPlay = () => {
+    track.videoPlay();
+  };
+
+  const handleSocialClick = (platform: string, url: string) => {
+    track.socialMedia(platform, url);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -90,6 +111,7 @@ export default async function Home() {
               <Link
                 href="/news"
                 className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium transition-colors"
+                onClick={() => track.navigate("news_all")}
               >
                 View all news →
               </Link>
@@ -113,6 +135,9 @@ export default async function Home() {
                           <Link
                             href={`/news/${article.slug}`}
                             className="hover:text-indigo-700 transition-colors"
+                            onClick={() =>
+                              handleNewsClick(article.title, article.slug)
+                            }
                           >
                             {article.title}
                           </Link>
@@ -132,6 +157,12 @@ export default async function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
+                        onClick={() =>
+                          handleExternalLinkClick(
+                            article.externalLink!,
+                            getExternalLinkText(article.externalLink!)
+                          )
+                        }
                       >
                         {getExternalLinkText(article.externalLink)}{" "}
                         <ExternalLink size={12} className="ml-1" />
@@ -140,6 +171,9 @@ export default async function Home() {
                       <Link
                         href={`/news/${article.slug}`}
                         className="text-indigo-700 hover:text-indigo-900 font-body font-medium text-sm transition-colors"
+                        onClick={() =>
+                          handleNewsClick(article.title, article.slug)
+                        }
                       >
                         Read more →
                       </Link>
@@ -179,6 +213,7 @@ export default async function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-amber-100 rounded-lg font-bold py-4 px-8 rounded-lg text-xl mb-6 text-center"
+                onClick={handleSurveyClick}
               >
                 Take the Survey
               </a>
@@ -218,6 +253,7 @@ export default async function Home() {
             </div>
             <div className="order-2 md:order-1 md:w-1/3 md:pl-8">
               <div className="bg-indigo-900 p-1 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
+                <NewsletterTracker location="main_newsletter" />
                 <Script
                   id="mailerlite-universal"
                   strategy="afterInteractive"
@@ -343,6 +379,7 @@ export default async function Home() {
                 controls
                 className="w-full h-auto rounded-lg"
                 poster="/images/video-poster.jpg"
+                onPlay={handleVideoPlay}
               >
                 <source src="/videos/pastforward-intro.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -433,7 +470,16 @@ export default async function Home() {
                 </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
-                  <a href="https://www.jonaschlegel.com" className="underline">
+                  <a
+                    href="https://www.jonaschlegel.com"
+                    className="underline"
+                    onClick={() =>
+                      handleExternalLinkClick(
+                        "https://www.jonaschlegel.com",
+                        "Jona Schlegel Portfolio"
+                      )
+                    }
+                  >
                     here
                   </a>
                 </p>
@@ -466,6 +512,12 @@ export default async function Home() {
                   <a
                     href="https://www.ilovearchaeology.com/"
                     className="underline"
+                    onClick={() =>
+                      handleExternalLinkClick(
+                        "https://www.ilovearchaeology.com/",
+                        "Alexandra Dolea I Love Archaeology"
+                      )
+                    }
                   >
                     here
                   </a>
@@ -496,7 +548,16 @@ export default async function Home() {
                 </p>
                 <p className="text-base font-body">
                   Connect with her{" "}
-                  <a href="https://lauracoltofean.com/" className="underline">
+                  <a
+                    href="https://lauracoltofean.com/"
+                    className="underline"
+                    onClick={() =>
+                      handleExternalLinkClick(
+                        "https://lauracoltofean.com/",
+                        "Laura Coltofean Portfolio"
+                      )
+                    }
+                  >
                     here
                   </a>
                 </p>
@@ -530,6 +591,7 @@ export default async function Home() {
             </div>
             <div className="md:w-1/3">
               <div className="bg-indigo-900 p-1 rounded-lg text-white shadow-[0px_24px_20px_-20px_#2d3748]">
+                <NewsletterTracker location="crowdfunding_newsletter" />
                 <Script
                   id="mailerlite-universal-support"
                   strategy="afterInteractive"

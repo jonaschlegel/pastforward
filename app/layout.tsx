@@ -1,11 +1,12 @@
-import type React from "react";
-import "./globals.css";
-import type { Metadata } from "next";
-import { Newsreader, Mulish } from "next/font/google";
-import Tracking from "./Tracking";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+import './globals.css';
+import Footer from '@/components/Footer';
+import Navigation from '@/components/Navigation';
+import ScrollToTop from '@/components/ScrollToTop';
+import ScrollTracker from '@/components/ScrollTracker';
+import type { Metadata } from 'next';
+import { Mulish, Newsreader } from 'next/font/google';
+import type React from 'react';
+import Tracking from './Tracking';
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <ScrollToTop />
+        <ScrollTracker />
         <Tracking />
       </body>
     </html>
