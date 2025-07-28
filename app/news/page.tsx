@@ -1,7 +1,7 @@
-import { getTimelineArticles, getExternalLinkText } from "@/lib/news";
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import type { Metadata } from "next";
+import { getExternalLinkText, getTimelineArticles } from '@/lib/news';
+import { ExternalLink } from 'lucide-react';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "News - PastForward",
