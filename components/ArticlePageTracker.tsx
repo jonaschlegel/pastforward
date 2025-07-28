@@ -13,10 +13,9 @@ export default function ArticlePageTracker({
   articleSlug,
 }: ArticlePageTrackerProps) {
   useEffect(() => {
-    // Track article page view
     trackGA.newsArticle(articleTitle, articleSlug);
     trackFB.viewContent(articleTitle, "news_article");
   }, [articleTitle, articleSlug]);
 
-  return null; // This component doesn't render anything
+  return null;
 }

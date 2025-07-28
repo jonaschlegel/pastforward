@@ -24,7 +24,6 @@ export default function ScrollTracker() {
       });
     };
 
-    // Throttle scroll events
     let ticking = false;
     const throttledHandleScroll = () => {
       if (!ticking) {
@@ -43,5 +42,5 @@ export default function ScrollTracker() {
     };
   }, []);
 
-  return null; // This component doesn't render anything
+  return null;
 }
