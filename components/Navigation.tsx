@@ -1,7 +1,7 @@
 "use client";
 
-import { track } from '@/lib/tracking';
-import Link from 'next/link';
+import { track } from "@/lib/tracking";
+import Link from "next/link";
 
 export default function Navigation() {
   const handleNavClick = (destination: string) => {
@@ -32,7 +32,7 @@ export default function Navigation() {
             newsletter
           </Link>
           <Link
-            href="/#crowdfunding"
+            href="https://www.kickstarter.com/projects/pastforwardhub/pastforwardhub-for-archaeologists-by-archaeologists?ref=discovery&term=pastforwardhub&total_hits=1&category_id=342"
             className="text-gray-600"
             onClick={() => handleNavClick("crowdfunding")}
           >

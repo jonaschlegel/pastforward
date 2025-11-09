@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowLeft, Search } from "lucide-react";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -101,7 +101,7 @@ export default function NotFound() {
                 </p>
               </Link>
               <Link
-                href="/#crowdfunding"
+                href="https://www.kickstarter.com/projects/pastforwardhub/pastforwardhub-for-archaeologists-by-archaeologists?ref=discovery&term=pastforwardhub&total_hits=1&category_id=342"
                 className="bg-white p-4 rounded-lg shadow-[0px_12px_16px_-8px_#2d3748] hover:shadow-[0px_8px_20px_-4px_#2d3748] transition-shadow"
               >
                 <h4 className="font-bold font-heading text-gray-900 mb-2">

@@ -505,7 +505,7 @@ export default async function Home() {
       </section>
 
       {/* Support Section */}
-      <section id="crowdfunding" className="py-16">
+      <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row">
             <div className="md:w-2/3 mb-8 md:mb-0 md:pr-28">
