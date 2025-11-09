@@ -4,10 +4,10 @@ import {
   SurveyButton,
   TrackedNewsLink,
   VideoPlayer,
-} from '@/components/HomePageTracking';
-import NewsletterTracker from '@/components/NewsletterTracker';
-import { getExternalLinkText, getFeaturedNewsArticles } from '@/lib/news';
-import { format } from 'date-fns';
+} from "@/components/HomePageTracking";
+import NewsletterTracker from "@/components/NewsletterTracker";
+import { getExternalLinkText, getFeaturedNewsArticles } from "@/lib/news";
+import { format } from "date-fns";
 import {
   BookOpen,
   ClipboardList,
@@ -16,11 +16,11 @@ import {
   Instagram,
   Search,
   Users,
-} from 'lucide-react';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import Script from 'next/script';
+} from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Home - PastForwardHub",
@@ -459,7 +459,7 @@ export default async function Home() {
                 <p className="text-base font-body">
                   Connect with her{" "}
                   <ExternalTrackedLink
-                    href="https://www.ilovearchaeology.com/"
+                    href="https://www.alexandradolea.com/"
                     className="underline"
                   >
                     here
